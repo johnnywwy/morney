@@ -3,13 +3,14 @@ import VueRouter from 'vue-router';
 import Money from '@/views/Money.vue';
 import Labels from '@/views/Labels.vue';
 import Statistics from '@/views/Statistics.vue';
+import NotFound from '@/views/NotFound.vue';
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path:'/',
-    redirect:'/money'
+    path: '/',
+    redirect: '/money'
   },
   {
     path: '/money',
@@ -22,6 +23,11 @@ const routes = [
   {
     path: '/statistics',
     component: Statistics
+  },
+  {
+    // 会匹配所有路径
+    path: '*',
+    component: NotFound
   }
 ];
 
