@@ -20,8 +20,6 @@ export default class Types extends Vue {
     if (type !== '-' && type !== '+') {
       throw new Error('type in unknown');
     }
-    this.type = type;
-
   }
 }
 // export default {
