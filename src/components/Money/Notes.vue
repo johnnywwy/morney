@@ -16,6 +16,7 @@ import {Component} from 'vue-property-decorator';
 export default class Notes extends Vue {
   value = '';
 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   onInput(event: KeyboardEvent) {
     const input = event.target as HTMLInputElement;
     this.value = input.value;
