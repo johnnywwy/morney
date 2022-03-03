@@ -17,6 +17,7 @@ import {Component} from 'vue-property-decorator';
 export default class Types extends Vue {
   type = '-';// '-' 表示支出  '+'表示收入
 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   selectType(type: string) {
     if (type !== '-' && type !== '+') {
       throw new Error('type in unknown');
