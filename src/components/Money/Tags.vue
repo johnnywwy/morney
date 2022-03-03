@@ -1,7 +1,7 @@
 <template>
   <div class="tags">
     <div class="new">
-      <button>新增标签</button>
+      <button @click="create">新增标签</button>
     </div>
     <ul class="current">
       <li v-for="tag in dataSource "
@@ -19,7 +19,7 @@ import {Component, Prop} from 'vue-property-decorator';
 
 @Component
 export default class Tags extends Vue {
-  @Prop() dataSource: string[] | undefined;
+  @Prop() readonly dataSource: string[] | undefined;
   selectedTags: string[] = [];
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
@@ -30,6 +30,19 @@ export default class Tags extends Vue {
     } else {
       this.selectedTags.push(tag);
     }
+
+  }
+
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  create() {
+    const name = window.prompt('请输入标签名：');
+    if (name === '') {
+      window.alert('标签名不能为空');
+    } else if (this.dataSource) {
+      this.$emit('updata:dataSource',
+          [...this.dataSource, name]);
+    }
+
 
   }
 }
