@@ -1,9 +1,9 @@
 <template>
   <ul class="types">
-    <li :class="type === '-' && 'selected'"
+    <li :class="value === '-' && 'selected'"
         @click="selectType('-')">支出
     </li>
-    <li :class="type === '+' && 'selected'"
+    <li :class="value === '+' && 'selected'"
         @click="selectType('+')">收入
     </li>
   </ul>
@@ -11,18 +11,20 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import {Component} from 'vue-property-decorator';
+import {Component, Prop} from 'vue-property-decorator';
 
 @Component
 export default class Types extends Vue {
-  type = '-';// '-' 表示支出  '+'表示收入
+  // '-' 表示支出  '+'表示收入
+
+  @Prop() readonly value!: string;
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   selectType(type: string) {
     if (type !== '-' && type !== '+') {
       throw new Error('type in unknown');
     }
-    this.type = type;
+    this.$emit('update:value',type)
   }
 }
 
