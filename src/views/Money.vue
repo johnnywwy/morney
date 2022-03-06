@@ -4,7 +4,6 @@
     <Types :value.sync="record.type"/>
     <Notes @update:value="onUpdateNotes"/>
     <Tags :data-source.sync="tags" @update:value="onUpdateTags"/>
-    {{recordList}}
   </layout>
 </template>
 
@@ -50,6 +49,7 @@ export default class Money extends Vue {
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   onRecordListChange() {
     model.save(this.recordList);
+    console.log(recordList);
   }
 
 }
