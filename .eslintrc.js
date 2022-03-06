@@ -14,7 +14,7 @@ module.exports = {
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    "@typescript-eslint/no-var-requires": 0,
+    '@typescript-eslint/no-var-requires': 0,
   },
   overrides: [
     {
@@ -27,8 +27,9 @@ module.exports = {
       }
     }
   ],
-  'globals':{
-    "__WebpackModuleApi":"writable",
-     "RecordItem": true
+  'globals': {
+    '__WebpackModuleApi': 'writable',
+    'RecordItem': true,
+    'ListModel': true
   },
 }

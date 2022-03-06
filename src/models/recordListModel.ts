@@ -1,6 +1,6 @@
 const localStorageKayName = 'recordList';
 
-const model = {
+const recordListModel = {
   clone(data: RecordItem[]| RecordItem) {
     return JSON.parse(JSON.stringify(data));
   },
@@ -12,5 +12,4 @@ const model = {
     return window.localStorage.setItem(localStorageKayName, JSON.stringify(data));
   }
 };
-
-export default model;
+export default recordListModel;

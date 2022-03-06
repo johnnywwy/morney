@@ -15,6 +15,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+
 .layout-wrapper {
   display: flex;
   //border: 1px solid red;
