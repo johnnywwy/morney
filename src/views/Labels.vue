@@ -1,11 +1,10 @@
 <template>
   <layout>
     <ol class="tags">
-      <li v-for="item in tags" :key="item">
-        <span>{{ item }}</span>
+      <li v-for="tag in tags" :key="tag.id">
+        <span>{{ tag.name }}</span>
         <Icon name="right"></Icon>
       </li>
-
     </ol>
     <div class="createTag-wraper">
       <button class="createTag" @click="createTag">新建标签</button>
