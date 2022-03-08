@@ -32,7 +32,9 @@ const tagList = tagListModel.fetch();
 export default class Money extends Vue {
   tags = tagList;
   recordList: RecordItem[] = recordList;
-  record: RecordItem = {tags: [], notes: '', type: '-', amount: 0};
+  record: RecordItem = {
+    tags: [], notes: '', type: '-', amount: 0
+  };
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   onUpdateTags(value: string[]) {
@@ -46,16 +48,13 @@ export default class Money extends Vue {
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   saveRecord() {
-    const record2: RecordItem = recordListModel.clone(this.record);
-    record2.createAt = new Date();
-    this.recordList.push(record2);
+    recordListModel.create(this.record);
   }
 
   @Watch('recordList')
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   onRecordListChange() {
-    recordListModel.save(this.recordList);
-    console.log(recordList);
+    recordListModel.save();
   }
 
 }
@@ -66,7 +65,8 @@ export default class Money extends Vue {
   display: flex;
   flex-direction: column-reverse;
 }
-.notes{
+
+.notes {
   padding: 12px 0;
 }
 </style>
