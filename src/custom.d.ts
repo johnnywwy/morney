@@ -6,11 +6,6 @@ type RecordItem = {
   createAt?: Date | undefined//类
 }
 
-interface Window {
-  tagList: Tag[];
-  createTag: (name: string) => void;
-}
-
 type Tag = {
   id: string
   name: string
@@ -26,3 +21,10 @@ type TagListModel = {
   remove: (id: string) => boolean
 }
 
+interface Window {
+  tagList: Tag[];
+  findTag: (id: string) => Tag | undefined;
+  createTag: (name: string) => void;
+  removeTag: (id: string) => boolean;
+  updateTag: (id: string, name: string) => 'success' | 'not found' | 'duplicated';
+}
