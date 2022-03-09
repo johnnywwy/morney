@@ -24,7 +24,6 @@ import Vue from 'vue';
 import {Component} from 'vue-property-decorator';
 import FormItem from '@/components/Money/FormItem.vue';
 import Button from '@/components/Button.vue';
-import store from '@/store/index2';
 
 
 @Component({
@@ -32,10 +31,12 @@ import store from '@/store/index2';
 })
 export default class EditLabel extends Vue {
 
-  tag = store.findTag(this.$route.params.id);
+  tag?: Tag = undefined;
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   created() {
+    //todo
+    // this.tag = store.findTag(this.$route.params.id);
     if (!this.tag) {
       this.$router.replace('/404');
     }
@@ -43,17 +44,20 @@ export default class EditLabel extends Vue {
 
   update(name: string) {
     if (this.tag) {
-      store.updateTag(this.tag.id, name);
+      //todo
+      // store.updateTag(this.tag.id, name);
     }
   }
 
   remove() {
     if (this.tag) {
-      if (store.removeTag(this.tag.id)) {
-        this.$router.back();
-      } else {
-        window.alert('删除失败');
-      }
+      //todo
+      return;
+      // if (store.removeTag(this.tag.id)) {
+      //   this.$router.back();
+      // } else {
+      //   window.alert('删除失败');
+      // }
     }
   }
 
