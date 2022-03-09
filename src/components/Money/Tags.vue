@@ -22,14 +22,18 @@ import {Component} from 'vue-property-decorator';
   computed: {
     tagList() {
       //todo
-      // return this.$store.fetchTags()
-      return [];
+      return this.$store.state.tagList;
+      // return [];
     }
   }
 })
 export default class Tags extends Vue {
 
   selectedTags: string[] = [];
+
+  created() {
+    this.$store.commit('fetchTags');
+  }
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   toggle(tag: string) {
@@ -46,8 +50,7 @@ export default class Tags extends Vue {
   create() {
     const name = window.prompt('请输入标签名：');
     if (!name) { return window.alert('标签名不能为空'); }
-    //todo
-    // store.createTag(name);
+    this.$store.commit('createTag',name);
   }
 }
 </script>
