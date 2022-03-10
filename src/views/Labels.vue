@@ -21,7 +21,7 @@ import Button from '@/components/Button.vue';
 import {mixins} from 'vue-class-component';
 import {TagHelper} from '@/mixins/TagHelper';
 
-const tagHelper: any = require('@/mixins/TagHelper.js');
+const tagHelper: any = require('@/mixins/TagHelper.ts');
 
 @Component({
   components: {Button},
