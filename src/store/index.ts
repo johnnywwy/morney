@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import clone from '@/lib/clone';
 import createId from '@/lib/createId';
+import router from '@/router';
 
 Vue.use(Vuex);
 
@@ -36,6 +37,7 @@ const store = new Vuex.Store({
     fetchTags(state) {
       state.tagList = JSON.parse(window.localStorage.getItem('tagList') || '[]');
     },
+
     createTag(state, name: string) {
       const names = state.tagList.map(item => item.name);
       if (names.indexOf(name) >= 0) {
@@ -52,6 +54,7 @@ const store = new Vuex.Store({
       window.localStorage.setItem('tagList',
         JSON.stringify(state.tagList));
     },
+
     setCurrentTag(state, id: string) {
       state.currentTag = state.tagList.filter(t => t.id === id)[0];
     },
@@ -68,6 +71,25 @@ const store = new Vuex.Store({
           store.commit('saveTags');
         }
       }
+    },
+
+    removeTag(state, id: string) {
+      let index = -1;
+      for (let i = 0; i < state.tagList.length; i++) {
+        if (state.tagList[i].id === id) {
+          index = i;
+          break;
+        }
+      }
+      if (index >= 0) {
+        state.tagList.splice(index, 1);
+        store.commit('saveTags');
+        router.back();
+      } else {
+        window.alert('删除失败！');
+      }
+
+
     }
   }
 });
