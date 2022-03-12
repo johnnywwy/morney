@@ -8,6 +8,8 @@ type RecordItem = {
 
 type RootState = {
   recordList: RecordItem[],
+  createdRecordError: Error | null,
+  createdTagError: Error | null,
   tagList: Tag[],
   currentTag?: Tag,
 }
