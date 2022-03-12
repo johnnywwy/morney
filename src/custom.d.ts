@@ -1,5 +1,5 @@
 type RecordItem = {
-  tags: string[],
+  tags: Tag[],
   notes: string,
   type: string,
   amount: number //数据类型
@@ -15,7 +15,6 @@ type RootState = {
 type Tag = {
   id: string
   name: string
-
 }
 
 type TagListModel = {
