@@ -7,6 +7,7 @@
       <li v-for="tag in tagList "
           :key="tag.id"
           @click="toggle(tag)"
+          class="item"
           :class="{selected: selectedTags.indexOf(tag)>=0}">{{ tag.name }}
       </li>
     </ul>
@@ -36,10 +37,12 @@ export default class Tags extends mixins(TagHelper) {
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   toggle(tag: string) {
     const index = this.selectedTags.indexOf(tag);
+    console.log('index', index);
     if (index >= 0) {
       this.selectedTags.splice(index, 1);
     } else {
       this.selectedTags.push(tag);
+      console.log('selectedTags', this.selectedTags);
     }
     this.$emit('update:value', this.selectedTags);
   }

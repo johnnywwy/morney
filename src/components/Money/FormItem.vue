@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Icon name="notes" class="notesIcon"/>
     <label class="formItem">
       <span class="name">{{ this.fieldName }}</span>
       <input type="text" :value="value"
@@ -11,7 +12,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import {Component, Prop, Watch} from 'vue-property-decorator';
+import {Component, Prop} from 'vue-property-decorator';
 
 
 @Component
@@ -28,15 +29,27 @@ export default class FormItem extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.formItem {
-  font-size: 14px;
 
-  padding-left: 16px;
+div {
   display: flex;
   align-items: center;
+  padding-left: 16px;
+
+  .notesIcon {
+    height: 15px;
+  }
+}
+
+
+.formItem {
+  font-size: 15px;
+  padding-left: 3px;
+  display: flex;
+  align-items: center;
+  width:95%;
 
   > .name {
-    padding-right: 16px;
+    padding-right: 10px;
 
   }
 
