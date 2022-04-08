@@ -70,7 +70,6 @@ export default class Statistics extends Vue {
         return sum + item.amount;
       }, 0);
     });
-    console.log(result);
     return result;
   }
 
@@ -79,7 +78,6 @@ export default class Statistics extends Vue {
   }
 
   tagString(tags: Tag[]) {
-    // console.log(tags);
     return tags.length === 0 ? '无' : tags.map(t => t.name).join('，');
   }
 

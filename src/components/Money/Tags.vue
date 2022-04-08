@@ -37,12 +37,15 @@ export default class Tags extends mixins(TagHelper) {
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   toggle(tag: string) {
     const index = this.selectedTags.indexOf(tag);
-    console.log('index', index);
+
     if (index >= 0) {
       this.selectedTags.splice(index, 1);
+      console.log('splice', this.selectedTags);
+      // console.log('selectedTags.indexOf(tag)', this.selectedTags.indexOf(tag));
     } else {
       this.selectedTags.push(tag);
-      // console.log('selectedTags', this.selectedTags);
+      console.log('push', this.selectedTags);
+      console.log('selectedTags.indexOf(tag)', this.selectedTags.indexOf(tag));
     }
     this.$emit('update:value', this.selectedTags);
   }
